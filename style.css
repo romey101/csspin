@@ -1,0 +1,305 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+
+}
+
+
+body {
+    background-image: url(images/نادي\ قوقل1.png);
+    background-size: 100% 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-repeat: no-repeat;
+    background-position: fixed;
+
+}
+
+.container {
+    top: 35%;
+    left: 20%;
+    position: relative;
+    width: 500px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .spinBtn {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background: #ffffff;
+    border-radius: 50%;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 0.1em;
+    cursor: pointer;
+    user-select: none;
+
+}
+
+.container .spinBtn::before {
+    content: ' ';
+    position: absolute;
+    top: -20px;
+    width: 30px;
+    background: #ffffff;
+
+}
+
+.container .wheel {
+    border: double 10px #ffffff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #ffffff;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: transform 5s ease-in-out;
+    justify-content: center;
+    justify-items: center;
+}
+
+.container .wheel .accomp {
+
+    position: absolute;
+    width: 50%;
+    height: 50%;
+    background: var(--clr);
+    transform-origin: bottom right;
+    transform: rotate(calc(60deg * var(--i)));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    cursor: pointer;
+    clip-path: polygon(0 0, 60% 0, 100% 100%, 0 150%);
+
+
+}
+
+.container .wheel .accomp button {
+    justify-content: center;
+    justify-items: center;
+    transform: rotate(60deg);
+    font-size: 1em;
+    font-weight: 300;
+
+
+}
+
+
+
+.container .wheel .accomp span {
+    position: relative;
+    transform: rotate(45deg);
+    font-size: 10px;
+    font-weight: 300;
+    color: black;
+
+
+}
+
+
+
+.container .wheel .accomp a {
+    position: relative;
+
+    font-size: 10px;
+    font-weight: 300;
+    color: black;
+
+
+}
+
+.container .wheel .accomp a::after {
+    content: '';
+    position: absolute;
+    font-size: 1;
+    font-weight: 300;
+    color: black;
+
+
+}
+
+
+
+
+.holder {
+    top: -397%;
+    position: absolute;
+    background-color: #ffec1c;
+    width: 60px;
+    height: 70px;
+    overflow: hidden;
+    z-index: -3;
+    clip-path: polygon(50% 14%, 76% 25%, 51% 100%, 25% 25%);
+}
+
+.holder::before {
+    content: "";
+    position: absolute;
+    width: 100px;
+    height: 100x;
+    border-radius: 50%;
+}
+
+
+@media(max-width: 700px) {
+
+
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+        background-image: url(images/نادي\ قوقل.png);
+        background-size: 100% 100%;
+        background-repeat: no-repeat;
+        background-position: fixed;
+        background: cover;
+    }
+
+
+    .container {
+        position: relative;
+        top: 90px;
+        left: 0px;
+        width: 300px;
+        height: 300px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+
+    .container .spinBtn {
+        position: absolute;
+        width: 60px;
+        height: 60px;
+        background: #ffffff;
+        border-radius: 50%;
+        z-index: 10;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: 0.1em;
+        cursor: pointer;
+        user-select: none;
+
+    }
+
+    .container .spinBtn::before {
+        content: ' ';
+        position: absolute;
+        top: -20px;
+        width: 30px;
+        background: #ffffff;
+
+    }
+
+    .container .wheel {
+        border: double 10px #ffffff;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: #ffffff;
+        border-radius: 50%;
+        overflow: hidden;
+        transition: transform 5s ease-in-out;
+        justify-content: center;
+        justify-items: center;
+    }
+
+    .container .wheel .accomp {
+
+        position: absolute;
+        width: 50%;
+        height: 50%;
+        background: var(--clr);
+        transform-origin: bottom right;
+        transform: rotate(calc(60deg * var(--i)));
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        user-select: none;
+        cursor: pointer;
+        clip-path: polygon(0 0, 60% 0, 100% 100%, 0 150%);
+
+
+    }
+
+    .container .wheel .accomp button {
+        justify-content: center;
+        justify-items: center;
+        transform: rotate(60deg);
+        font-size: 1em;
+        font-weight: 300;
+
+
+    }
+
+
+    .container .wheel .accomp span a {
+        position: relative;
+        transform: rotate(45deg);
+        font-size: 10px;
+        font-weight: 300;
+        color: black;
+
+
+    }
+
+    .container .wheel .accomp a::after {
+        content: '';
+        position: absolute;
+        font-size: 1;
+        font-weight: 300;
+        color: black;
+
+
+    }
+
+
+    .holder {
+        top: -230%;
+        position: absolute;
+        background-color: #ffec1c;
+        width: 60px;
+        height: 70px;
+        overflow: hidden;
+        z-index: -3;
+        clip-path: polygon(50% 14%, 76% 25%, 51% 100%, 25% 25%);
+    }
+
+    .holder::before {
+        content: "";
+        position: absolute;
+        width: 100px;
+        height: 100x;
+        border-radius: 50%;
+    }
+
+
+
+}
