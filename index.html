@@ -1,111 +1,63 @@
 <!DOCTYPE html>
-<html>
-
-<head>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>spin wheel</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" typr="text/css" href="style.css">|
-    
-</head>
-
-<body>
-    <audio id="myAudio" autoplay="false" style="display: none;">
-        <source src="alert-sound.mp3.mp3" type="audio/mpeg">
-        Your browser does not support the audio element.
-      </audio>
-    <div class="bulit"></div>
-
-
-    <div class="container">
-
-        <div class="spinBtn">
-            <div class="holder"></div><img src="images/google-developers-logo-F8BF3155AC-seeklogo.com.png" alt=""
-                width="50px" height="40px">
-        </div>
-        <div class="wheel">
-            <div class="accomp" style="--i:1;--clr:#0D02C8;"><span>
-                    <button id="mybutton">1</button>
-                    
-                </span></div>
-            <div class="accomp" style="--i:2;--clr:#2F0B6C;"><span>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="./script.js" defer></script>
+  </head>
+  <body>
+    <!-- <div class="bulit"></div> -->
+    <main>
+      <section class="content">
+        <img src="./images/LOGO.png" alt="" class="logo" />
+        <h1 class="text">!جرب حظك</h1>
+      </section>
+      <section class="game">
+        <div class="container">
+          <div class="spinBtn">
+            <div class="holder"></div>
+            <img
+              src="images/google-developers-logo-F8BF3155AC-seeklogo.com.png"
+              alt=""
+              width="50px"
+              height="40px" />
+          </div>
+          <div class="wheel">
+            <div class="accomp" style="--i: 1; --clr: #0d02c8">
+              <span>
+                <button id="mybutton">1</button>
+              </span>
+            </div>
+            <div class="accomp" style="--i: 2; --clr: #2f0b6c">
+              <span>
                 <button id="mybutton2">2</button>
-                
-                </span></div>
-            <div class="accomp" style="--i:3;--clr:#DB4437;"><span>
+              </span>
+            </div>
+            <div class="accomp" style="--i: 3; --clr: #db4437">
+              <span>
                 <button id="mybutton3">3</button>
-               
-                </span></div>
-            <div class="accomp" style="--i:4;--clr:#0D02C8;"><span>
+              </span>
+            </div>
+            <div class="accomp" style="--i: 4; --clr: #0d02c8">
+              <span>
                 <button id="mybutton4">4</button>
-                
-                </span></div>
-            <div class="accomp" style="--i:5;--clr:#2F0B6C;"><span>
+              </span>
+            </div>
+            <div class="accomp" style="--i: 5; --clr: #2f0b6c">
+              <span>
                 <button id="mybutton5">5</button>
-                
-                </span></div>
-            <div class="accomp" style="--i:6;--clr:#DB4437;"><span>
+              </span>
+            </div>
+            <div class="accomp" style="--i: 6; --clr: #db4437">
+              <span>
                 <button id="mybutton6">6</button>
-               
-                </span></div>
+              </span>
+            </div>
+          </div>
         </div>
-    </div>
-
-
-    <script>
-    
-
-        let wheel = document.querySelector('.wheel');
-        let spinBtn = document.querySelector('.spinBtn');
-        let value = Math.ceil(Math.random() * 3600);
-        const audio = document.getElementById('myAudio');
-
-        spinBtn.onclick = function () {
-            wheel.style.transform = "rotate(" + value + "deg)";
-            value += Math.ceil(Math.random() * 3600);
-        }
-
-        const button = document.getElementById('mybutton');
-    button.addEventListener('click', function () {
-        audio.play();
-        alert("You clicked Button 1!");
-    });
-
-    const button2 = document.getElementById('mybutton2');
-    button2.addEventListener('click', function () {
-        audio.play();
-        alert("You clicked Button 2!");
-    });
-
-    const button3 = document.getElementById('mybutton3');
-    button3.addEventListener('click', function () {
-        audio.play();
-        alert("You clicked Button 3!");
-    });
-
-    const button4 = document.getElementById('mybutton4');
-    button4.addEventListener('click', function () {
-        audio.play();
-        alert("You clicked Button 4!");
-    });
-
-    const button5 = document.getElementById('mybutton5');
-    button5.addEventListener('click', function () {
-        audio.play();
-        alert("You clicked Button 5!");
-    });
-
-    const button6 = document.getElementById('mybutton6');
-    button6.addEventListener('click', function () {
-        audio.play();
-        alert("You clicked Button 6!");
-    });
-
-
-
-
-    </script>
-</body>
-
-
+      </section>
+    </main>
+  </body>
 </html>
