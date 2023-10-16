@@ -11,8 +11,8 @@ let deg = 0;
 spinBtn.addEventListener('click', () => {
   body.classList.toggle('bodyOverflow');
   spinBtn.style.pointerEvents = 'none';
-  deg = Math.floor(5000 + Math.random() * 5000);
-  wheel.style.transition = 'all 10s ease-out';
+  deg = Math.floor(Math.random() * 5000);
+  wheel.style.transition = 'all 5s ease-out';
   wheel.style.transform = `rotate(${deg}deg)`;
 });
 
