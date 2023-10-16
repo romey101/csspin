@@ -23,6 +23,8 @@ wheel.addEventListener('transitionend', () => {
   const actualDeg = deg % 360;
   wheel.style.transform = `rotate(${actualDeg}deg)`;
 
+  audio.play();
+
   showModal();
 });
 
