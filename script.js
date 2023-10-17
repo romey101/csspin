@@ -1,7 +1,7 @@
 const body = document.querySelector('body');
 const wheel = document.querySelector('.wheel');
 const spinBtn = document.querySelector('.spinBtn');
-const audio = document.querySelector('#sound');
+const audio = new Audio('./assets/alert-sound.mp3.mp3');
 const modal = document.querySelector('.modal');
 const modalOverlay = document.querySelector('.modalOverlay');
 const modalText = document.querySelector('.modalText');
@@ -9,6 +9,8 @@ const modalText = document.querySelector('.modalText');
 let deg = 0;
 
 spinBtn.addEventListener('click', () => {
+  audio.play();
+  audio.pause();
   body.classList.toggle('bodyOverflow');
   spinBtn.style.pointerEvents = 'none';
   deg = Math.floor(Math.random() * 5000);
@@ -23,7 +25,6 @@ wheel.addEventListener('transitionend', () => {
   const actualDeg = deg % 360;
   wheel.style.transform = `rotate(${actualDeg}deg)`;
 
-  audio.muted = false;
   audio.play();
 
   showModal();
