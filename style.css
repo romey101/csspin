@@ -339,6 +339,8 @@ main {
   background-color: white;
   border-radius: 20px;
   z-index: 10000;
+  animation: modal-reveal 0.35s ease;
+  -webkit-animation: modal-reveal 0.35s ease;
 }
 
 .modalHeading {
@@ -347,4 +349,16 @@ main {
 
 .hideModal {
   display: none;
+}
+
+@keyframes modal-reveal {
+  from {
+    transform: scale(0);
+  }
+  80% {
+    transform: scale(1.2);
+  }
+  to {
+    transform: scale(1);
+  }
 }
