@@ -31,8 +31,8 @@ body {
 body::after {
   position: absolute;
   content: '';
-  width: 320px;
-  height: 250px;
+  width: 280px;
+  height: 280px;
   bottom: 0;
   left: 0;
   background-image: url(./images/BG.png);
@@ -50,7 +50,7 @@ main {
   width: 100%;
   max-width: 600px;
   min-height: 100vh;
-  padding: 2rem 0;
+  padding: 4rem 1rem 2rem;
 }
 
 .content {
@@ -59,7 +59,7 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 2.5rem;
+  gap: 1.5rem;
 }
 
 .logo {
@@ -73,6 +73,7 @@ main {
 }
 
 .game {
+  position: relative;
   grid-column: 1/2;
   grid-row: 2/3;
   display: flex;
@@ -85,107 +86,130 @@ main {
   position: relative;
   width: 300px;
   height: 300px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
-.container .spinBtn {
+.spinBtn {
   position: absolute;
-  width: 60px;
-  height: 60px;
+  top: calc(50% - 25px);
+  left: calc(50% - 25px);
+  width: 50px;
+  height: 50px;
+  padding: 5px;
   background: #ffffff;
+  border: none;
+  outline: none;
   border-radius: 50%;
-  z-index: 10;
+  z-index: 100;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-transform: uppercase;
-  font-weight: 300;
-  letter-spacing: 0.1em;
   cursor: pointer;
-  user-select: none;
 }
 
-.container .spinBtn::before {
-  content: ' ';
+.spinBtn > img {
+  width: 100%;
+  height: auto;
+}
+
+.holder {
   position: absolute;
-  top: -20px;
+  top: -9px;
+  left: calc(50% - 15px);
+  background-image: url(./images/holder.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   width: 30px;
-  background: #ffffff;
+  height: 40px;
+  z-index: 100;
 }
 
-.container .wheel {
-  border: double 10px #ffffff;
+.wheel {
   position: absolute;
-  top: 0;
-  left: 0;
   width: 100%;
   height: 100%;
-  background: #ffffff;
   border-radius: 50%;
+  border: solid 10px #ffffff;
+  z-index: 10;
   overflow: hidden;
-  transition: transform 5s ease-in-out;
-  justify-content: center;
-  justify-items: center;
 }
 
-.container .wheel .accomp {
+.accomp {
   position: absolute;
+  display: grid;
+  place-content: center;
   width: 50%;
   height: 50%;
   background: var(--clr);
   transform-origin: bottom right;
-  transform: rotate(calc(60deg * var(--i)));
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  user-select: none;
-  cursor: pointer;
-  clip-path: polygon(0 0, 60% 0, 100% 100%, 0 150%);
+  z-index: 1;
 }
 
-.container .wheel .accomp button {
-  justify-content: center;
-  justify-items: center;
-  transform: rotate(60deg);
-  font-size: 1em;
-  font-weight: 300;
+.accomp:nth-of-type(1) {
+  left: calc(25%);
+  clip-path: polygon(50% 100%, 0 0, 100% 0);
+  transform: rotate(0deg);
 }
 
-.container .wheel .accomp span a {
-  position: relative;
+.accomp:nth-of-type(1) > .wheel__text {
+  transform: rotate(90deg);
+  padding-right: 30px;
+}
+
+.accomp:nth-of-type(2) {
+  left: calc(50%);
+  clip-path: polygon(50% 0, 100% 0, 100% 100%, 0% 100%);
+  transform: rotate(0deg);
+}
+
+.accomp:nth-of-type(2) > .wheel__text {
+  transform: rotate(135deg);
+  padding-bottom: 30px;
+}
+
+.accomp:nth-of-type(3) {
+  top: 50%;
+  left: calc(50%);
+  clip-path: polygon(100% 0, 100% 100%, 50% 100%, 0 0);
+  transform: rotate(0deg);
+}
+
+.accomp:nth-of-type(3) > .wheel__text {
+  transform: rotate(225deg);
+  padding-top: 30px;
+}
+
+.accomp:nth-of-type(4) {
+  top: 50%;
+  left: calc(25%);
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  transform: rotate(0deg);
+}
+
+.accomp:nth-of-type(4) > .wheel__text {
+  transform: rotate(270deg);
+  padding-right: 30px;
+}
+
+.accomp:nth-of-type(5) {
+  top: 50%;
+  clip-path: polygon(0 0, 100% 0, 50% 100%, 0% 100%);
+  transform: rotate(0deg);
+}
+
+.accomp:nth-of-type(5) > .wheel__text {
+  transform: rotate(315deg);
+  padding-bottom: 30px;
+}
+
+.accomp:nth-of-type(6) {
+  clip-path: polygon(0 0, 50% 0, 100% 100%, 0% 100%);
+  transform: rotate(0deg);
+}
+
+.accomp:nth-of-type(6) > .wheel__text {
   transform: rotate(45deg);
-  font-size: 10px;
-  font-weight: 300;
-  color: black;
-}
-
-.container .wheel .accomp a::after {
-  content: '';
-  position: absolute;
-  font-size: 1;
-  font-weight: 300;
-  color: black;
-}
-
-.holder {
-  top: -230%;
-  position: absolute;
-  background-color: #ffec1c;
-  width: 60px;
-  height: 70px;
-  overflow: hidden;
-  z-index: -3;
-  clip-path: polygon(50% 14%, 76% 25%, 51% 100%, 25% 25%);
-}
-
-.holder::before {
-  content: '';
-  position: absolute;
-  width: 100px;
-  height: 100x;
-  border-radius: 50%;
+  padding-top: 30px;
 }
 
 @media screen and (min-width: 1000px) {
@@ -202,24 +226,23 @@ main {
   }
 
   body::after {
-    width: 600px;
-    height: 650px;
+    width: 38%;
+    height: 90%;
     top: 0;
     bottom: auto;
     right: 0;
     left: auto;
     background-image: url(./images/BG.png);
     background-position: left -120px;
-    background-size: 130%;
-    background-repeat: no-repeat;
+    background-size: cover;
   }
 
   main {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
-    gap: 4rem;
+    gap: 1rem;
     max-width: 100%;
-    height: 100vh;
+    padding: 2rem 3rem;
   }
 
   .content {
@@ -243,122 +266,99 @@ main {
     grid-row: 1/2;
     align-items: flex-start;
     justify-content: center;
+  }
+
+  .container {
+    width: 450px;
+    height: 450px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  body::after {
+    width: 40%;
+    height: 75%;
+    background-position: -30% -120px;
+    background-size: 130%;
+  }
+
+  .container {
+    width: 530px;
+    height: 530px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  body::after {
+    width: 40%;
+    height: 87%;
+    background-position: left -120px;
+    background-size: 120%;
+  }
+
+  .game {
     padding-top: 80px;
   }
 
   .container {
-    position: relative;
-    width: 500px;
-    height: 500px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 560px;
+    height: 560px;
+  }
+}
+
+.bodyOverflow {
+  overflow: hidden;
+}
+
+.modalOverlay {
+  position: absolute;
+  min-height: 100vh;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 1000;
+  background-color: black;
+  opacity: 0.5;
+}
+
+.modal {
+  position: absolute;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  gap: 10px;
+  top: calc(50% - 100px);
+  width: calc(100% - 3rem);
+  max-width: 400px;
+  min-height: 200px;
+  margin: 3rem;
+  background-color: white;
+  border-radius: 20px;
+  z-index: 10000;
+  animation: modal-reveal 0.35s ease;
+  -webkit-animation: modal-reveal 0.35s ease;
+}
+
+.modalHeading {
+  color: #db4437;
+}
+
+.hideModal {
+  display: none;
+}
+
+@keyframes modal-reveal {
+  from {
+    transform: scale(0);
+  }
+  80% {
     transform: scale(1.2);
   }
-
-  .container .spinBtn {
-    position: absolute;
-    width: 60px;
-    height: 60px;
-    background: #ffffff;
-    border-radius: 50%;
-    z-index: 10;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
-    font-weight: 300;
-    letter-spacing: 0.1em;
-    cursor: pointer;
-    user-select: none;
-  }
-
-  .container .spinBtn::before {
-    content: ' ';
-    position: absolute;
-    top: -20px;
-    width: 30px;
-    background: #ffffff;
-  }
-
-  .container .wheel {
-    border: double 10px #ffffff;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #ffffff;
-    border-radius: 50%;
-    overflow: hidden;
-    transition: transform 5s ease-in-out;
-    justify-content: center;
-    justify-items: center;
-  }
-
-  .container .wheel .accomp {
-    position: absolute;
-    width: 50%;
-    height: 50%;
-    background: var(--clr);
-    transform-origin: bottom right;
-    transform: rotate(calc(60deg * var(--i)));
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    user-select: none;
-    cursor: pointer;
-    clip-path: polygon(0 0, 60% 0, 100% 100%, 0 150%);
-  }
-
-  .container .wheel .accomp button {
-    justify-content: center;
-    justify-items: center;
-    transform: rotate(60deg);
-    font-size: 1em;
-    font-weight: 300;
-  }
-
-  .container .wheel .accomp span {
-    position: relative;
-    transform: rotate(45deg);
-    font-size: 10px;
-    font-weight: 300;
-    color: black;
-  }
-
-  .container .wheel .accomp a {
-    position: relative;
-
-    font-size: 10px;
-    font-weight: 300;
-    color: black;
-  }
-
-  .container .wheel .accomp a::after {
-    content: '';
-    position: absolute;
-    font-size: 1;
-    font-weight: 300;
-    color: black;
-  }
-
-  .holder {
-    top: -397%;
-    position: absolute;
-    background-color: #ffec1c;
-    width: 60px;
-    height: 70px;
-    overflow: hidden;
-    z-index: -3;
-    clip-path: polygon(50% 14%, 76% 25%, 51% 100%, 25% 25%);
-  }
-
-  .holder::before {
-    content: '';
-    position: absolute;
-    width: 100px;
-    height: 100x;
-    border-radius: 50%;
+  to {
+    transform: scale(1);
   }
 }

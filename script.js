@@ -1,45 +1,55 @@
-let wheel = document.querySelector('.wheel');
-let spinBtn = document.querySelector('.spinBtn');
-let value = Math.ceil(Math.random() * 3600);
+const body = document.querySelector('body');
+const wheel = document.querySelector('.wheel');
+const spinBtn = document.querySelector('.spinBtn');
 const audio = new Audio('./assets/alert-sound.mp3.mp3');
+const modal = document.querySelector('.modal');
+const modalOverlay = document.querySelector('.modalOverlay');
+const modalText = document.querySelector('.modalText');
 
-spinBtn.onclick = function () {
-  wheel.style.transform = 'rotate(' + value + 'deg)';
-  value += Math.ceil(Math.random() * 3600);
+let deg = 0;
+
+spinBtn.addEventListener('click', () => {
+  audio.play();
+  audio.pause();
+  body.classList.toggle('bodyOverflow');
+  spinBtn.style.pointerEvents = 'none';
+  deg = Math.floor(Math.random() * 5000);
+  wheel.style.transition = 'all 5s ease-out';
+  wheel.style.transform = `rotate(${deg}deg)`;
+});
+
+wheel.addEventListener('transitionend', () => {
+  body.classList.toggle('bodyOverflow');
+  spinBtn.style.pointerEvents = 'auto';
+  wheel.style.transition = 'none';
+  const actualDeg = deg % 360;
+  wheel.style.transform = `rotate(${actualDeg}deg)`;
+
+  audio.play();
+
+  showModal();
+});
+
+import { getState, getCountry } from './locale.js';
+
+const getInfo = () => {
+  const userCountry = getCountry();
+  const userState = getState();
+  modalText.textContent = `Country: ${userCountry} - Region: ${userState}`;
 };
 
-const button = document.getElementById('mybutton');
-button.addEventListener('click', function () {
-  audio.play();
-  alert('You clicked Button 1!');
-});
+const showModal = () => {
+  modal.classList.remove('hideModal');
+  modalOverlay.classList.remove('hideModal');
+  body.classList.toggle('bodyOverflow');
+  getInfo();
+};
 
-const button2 = document.getElementById('mybutton2');
-button2.addEventListener('click', function () {
-  audio.play();
-  alert('You clicked Button 2!');
-});
+const hideModal = () => {
+  modal.classList.add('hideModal');
+  modalOverlay.classList.add('hideModal');
+};
 
-const button3 = document.getElementById('mybutton3');
-button3.addEventListener('click', function () {
-  audio.play();
-  alert('You clicked Button 3!');
-});
-
-const button4 = document.getElementById('mybutton4');
-button4.addEventListener('click', function () {
-  audio.play();
-  alert('You clicked Button 4!');
-});
-
-const button5 = document.getElementById('mybutton5');
-button5.addEventListener('click', function () {
-  audio.play();
-  alert('You clicked Button 5!');
-});
-
-const button6 = document.getElementById('mybutton6');
-button6.addEventListener('click', function () {
-  audio.play();
-  alert('You clicked Button 6!');
+modalOverlay.addEventListener('click', () => {
+  hideModal();
 });
