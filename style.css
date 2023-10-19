@@ -32,8 +32,6 @@
   body::after {
     position: absolute;
     content: '';
-    width: 320px;
-    height: 250px;
     width: 280px;
     height: 280px;
     bottom: 0;
@@ -241,7 +239,6 @@
       background-image: url(./images/BG.png);
       background-position: left -120px;
       background-size: cover;
-      background-size: 150% 150%;
     }
   
     main {
@@ -286,7 +283,7 @@
       width: 40%;
       height: 75%;
       background-position: -30% -120px;
-      background-size: 150% 150%;
+    background-size: 130%;
     }
   
     .container {
