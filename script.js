@@ -1,7 +1,7 @@
 const body = document.querySelector('body');
 const wheel = document.querySelector('.wheel');
 const spinBtn = document.querySelector('.spinBtn');
-const audio = new Video('./assets/Cs.mp4');
+const audio = new Audio('./assets/alert-sound.mp3.mp3');
 const modal = document.querySelector('.modal');
 const modalOverlay = document.querySelector('.modalOverlay');
 const modalText = document.querySelector('.modalText');
